@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./style.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Paste from "./components/Paste";
 
 function App() {
+  const path = window.location.pathname;
+  const content = path.substring(1);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="container">
+        <Paste disabled={content ? true : false} url={content ? content : ""} />
+      </div>
+      {/* <Footer /> */}
     </div>
   );
 }
